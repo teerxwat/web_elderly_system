@@ -1,0 +1,213 @@
+:root {
+	--navbar-width: 80px;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	min-height: 100%;
+	font-family: system-ui, sans-serif;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+		"Open Sans", "Helvetica Neue", sans-serif;
+	background: linear-gradient(180deg, #b5d2ef 0%, #f0f8ff 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.app-container {
+	display: flex;
+	min-height: 100vh;
+}
+
+.content-wrapper {
+	flex: 1;
+	padding: 1.5rem 1.5rem 1.5rem 0.5rem;
+	/* ลด padding ซ้ายให้ชิดมากขึ้น */
+	margin-left: var(--navbar-width);
+	transition: margin-left 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	max-width: calc(100vw - var(--navbar-width));
+}
+
+.navbar-expanded .content-wrapper {
+	margin-left: 200px;
+	max-width: calc(100vw - 200px);
+	padding-left: 0.5rem;
+	/* ให้ระยะห่างน้อยที่สุดจาก expanded navbar */
+}
+
+/* Header section - จัดให้ ProfileHeader อยู่ขวาบน */
+.header-section {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 1.5rem;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	margin-top: 0;
+	margin-left: 0;
+	width: 100%;
+	align-items: flex-start;
+	/* ให้ทุกอย่างชิดซ้าย */
+}
+
+/* Search section - เพิ่มเข้ามาใหม่ */
+.search-section {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+/* Gateway section - ให้ดูเด่นขึ้นและอยู่ตรงกลาง */
+.gateway-section {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+/* Sensors section - ใช้ flexbox แทน grid */
+.sensors-section {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 100%;
+	align-items: flex-start;
+	/* ให้ sensor cards ชิดซ้าย */
+}
+
+/* เมื่อหน้าจอกว้างพอ ให้แสดงแบบแถวเดียว */
+@media (min-width: 1024px) {
+	.sensors-section {
+		flex-direction: row;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.sensor-group {
+		flex: 0 0 auto;
+		/* ไม่ให้ขยายเต็มพื้นที่ */
+		min-width: 400px;
+	}
+}
+
+.sensor-group {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+	/* ให้ sensor group ใช้พื้นที่เต็ม */
+	align-items: flex-start;
+	/* ให้เนื้อหาชิดซ้าย */
+}
+
+.section-title {
+	font-size: 1.25rem;
+	color: #334155;
+	margin: 0;
+	font-weight: 600;
+	text-align: left;
+	border-left: 4px solid #60a5fa;
+	padding-left: 1rem;
+	line-height: 1.5;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+	.sensors-section {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.content-wrapper,
+	.navbar-expanded .content-wrapper {
+		margin-left: var(--navbar-width);
+		max-width: calc(100vw - var(--navbar-width));
+		padding: 1rem 1rem 1rem 0.25rem;
+		/* ปรับ padding ให้ชิดมากที่สุด */
+	}
+
+	.sensors-section {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.section-title {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.sensors-section {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.content-wrapper {
+		padding: 0.75rem 0.75rem 0.75rem 0.25rem;
+		/* ชิดมากที่สุดในหน้าจอเล็ก */
+	}
+}
+
+/* เอา styles เก่าที่ไม่ใช้ออก */
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.logo {
+	height: 6em;
+	padding: 1.5em;
+	will-change: filter;
+	transition: filter 300ms;
+}
+
+.logo:hover {
+	filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+	filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear;
+	}
+}
+
+.card {
+	padding: 2em;
+}
+
+.read-the-docs {
+	color: #888;
+}

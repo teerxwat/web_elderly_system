@@ -1,0 +1,59 @@
+.profile-header {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	background-color: transparent;
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}
+
+.profile-info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: right;
+	gap: 0;
+}
+
+.profile-name {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: #333;
+	line-height: 1.1;
+}
+
+.profile-gateway {
+	font-size: 0.8rem;
+	color: #a0a0a0;
+	line-height: 1.1;
+}
+
+.profile-avatar {
+	width: 50px;
+	height: 50px;
+	background-color: #e0e0e0;
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+	.profile-header {
+		gap: 0.75rem;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	.profile-name {
+		font-size: 1rem;
+	}
+
+	.profile-gateway {
+		font-size: 0.7rem;
+	}
+
+	.profile-avatar {
+		width: 40px;
+		height: 40px;
+	}
+}

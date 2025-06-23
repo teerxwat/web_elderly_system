@@ -1,0 +1,156 @@
+:root {
+	--navbar-bg-color: #f0f4ff;
+	--navbar-text-color: #5a6a85;
+	--navbar-text-hover-color: #007bff;
+	--navbar-active-bg-color: #ffffff;
+	--navbar-width: 80px;
+	--navbar-width-expanded: 200px;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: var(--navbar-width);
+	background: linear-gradient(180deg, rgba(199, 222, 248, 1) 0%, rgba(249, 235, 235, 1) 100%);
+	transition: width 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 1rem 0;
+	box-shadow: 2px 0 15px rgba(56, 56, 56, 0.25);
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	z-index: 10;
+}
+
+.navbar.expanded {
+	width: var(--navbar-width-expanded);
+}
+
+.navbar-nav {
+	list-style: none;
+	padding: 0;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.navbar.expanded .navbar-nav {
+	align-items: flex-start;
+}
+
+.nav-item {
+	width: 100%;
+}
+
+.nav-link {
+	display: flex;
+	align-items: center;
+	height: 3.5rem;
+	color: var(--navbar-text-color);
+	text-decoration: none;
+	padding: 0 1.5rem;
+	transition: background-color 0.3s, color 0.3s;
+	font-weight: 500;
+	margin: 0.25rem 0;
+}
+
+.navbar:not(.expanded) .nav-link {
+	justify-content: center;
+}
+
+.nav-link:hover {
+	background-color: var(--navbar-active-bg-color);
+	color: var(--navbar-text-hover-color);
+	border-radius: 10px;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.nav-link.active {
+	background-color: var(--navbar-active-bg-color);
+	color: var(--navbar-text-hover-color);
+	box-shadow: inset 3px 0 10px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.nav-icon {
+	font-size: 1.2rem;
+	min-width: 2rem;
+	margin: 0 1.5rem 0 0;
+	transition: margin 0.3s ease;
+}
+
+.navbar:not(.expanded) .nav-icon {
+	margin: 0;
+}
+
+.link-text {
+	display: none;
+	margin-left: 1rem;
+	white-space: nowrap;
+}
+
+.navbar.expanded .link-text {
+	display: inline;
+}
+
+.navbar-logout {
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.navbar.expanded .navbar-logout {
+	align-items: flex-start;
+}
+
+/* ✅ FIX: Toggler now stays inside the navbar */
+.navbar-toggler-wrapper {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(50%, -50%);
+	z-index: 20;
+}
+
+.navbar-toggle {
+	background: linear-gradient(90deg, rgba(222, 228, 242, 1) 0%, rgba(225, 229, 241, 1) 100%);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+	padding: 0;
+	border: none;
+}
+
+.navbar-toggle:hover {
+	transform: scale(1.1);
+}
+
+.toggle-icon {
+	transition: transform 0.3s ease;
+	font-size: 0.8rem;
+	color: #5a6a85;
+}
+
+.navbar.expanded .toggle-icon {
+	transform: rotate(180deg);
+}

@@ -1,0 +1,241 @@
+.search-box {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 20px;
+	padding: 2rem;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	margin: 2rem auto;
+	max-width: 800px;
+	color: white;
+	position: relative;
+	overflow: hidden;
+}
+
+.search-box::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 20px;
+	z-index: 1;
+}
+
+.search-box > * {
+	position: relative;
+	z-index: 2;
+}
+
+.search-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.search-header h2 {
+	font-size: 2rem;
+	font-weight: 700;
+	margin: 0 0 0.5rem 0;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-header p {
+	font-size: 1rem;
+	opacity: 0.9;
+	margin: 0;
+}
+
+.search-form {
+	background: rgba(255, 255, 255, 0.15);
+	border-radius: 15px;
+	padding: 2rem;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	font-size: 0.95rem;
+}
+
+.icon {
+	font-size: 1.2rem;
+}
+
+.search-input {
+	background: rgba(255, 255, 255, 0.9);
+	border: none;
+	border-radius: 10px;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	color: #333;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+	outline: none;
+	background: white;
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 8px 16px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+	color: #666;
+	opacity: 0.7;
+}
+
+.button-group {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.search-btn,
+.clear-btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 2rem;
+	border: none;
+	border-radius: 12px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	min-width: 140px;
+	justify-content: center;
+}
+
+.search-btn {
+	background: linear-gradient(135deg, #4caf50, #45a049);
+	color: white;
+	box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.search-btn:hover {
+	background: linear-gradient(135deg, #45a049, #4caf50);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+}
+
+.clear-btn {
+	background: linear-gradient(135deg, #f44336, #d32f2f);
+	color: white;
+	box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+}
+
+.clear-btn:hover {
+	background: linear-gradient(135deg, #d32f2f, #f44336);
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(244, 67, 54, 0.6);
+}
+
+.btn-icon {
+	font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.search-box {
+		margin: 1rem;
+		padding: 1.5rem;
+	}
+
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.button-group {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.search-btn,
+	.clear-btn {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.search-header h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.search-box {
+		padding: 1rem;
+	}
+
+	.search-form {
+		padding: 1.5rem;
+	}
+
+	.search-header h2 {
+		font-size: 1.3rem;
+	}
+
+	.search-header p {
+		font-size: 0.9rem;
+	}
+}
+
+/* Animation for form appearance */
+.search-box {
+	animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Hover effects for form groups */
+.form-group:hover .search-input {
+	transform: translateY(-1px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus states */
+.search-input:focus {
+	animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
